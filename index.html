@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/eurovision.css">
+    <title>Vote Eurovision 2017</title>
+  </head>
+  <body>
+    <div id="app" class="c-app"></div>
+    <template id="view-login">
+      <div class="c-login__container">
+        <div class="c-login">
+          <img class="c-login__logo" src="Eurovision_Kyiv2017_black.png" alt="Eurovision 2017" />
+
+          <label for="login-name" class="c-login__label">Your name</label>
+          <input type="text" id="login-name" class="c-login__name" data-js="login-name" />
+
+          <button type="button" class="c-login__button" data-js="login-button">
+            Begin
+          </button>
+        </div>
+      </div>
+    </template>
+    <template id="view-judge">
+      <div class="c-header">
+        <img class="c-header__logo" src="Eurovision_Kyiv2017_black.png" alt="Eurovision 2017" />
+        <div>
+          <a href="#" data-link="judge">Judge</a>
+          <a href="#" data-link="vote">Points</a>
+        </div>
+        <span class="c-header__name"><%=name%></span>
+      </div>
+
+      <div>
+        <% for (var song of songs) { %>
+          <div class="c-song" data-song="<%=song.code%>">
+            <div class="c-song__header">
+              <img class="c-flag" src="<%=song.flag%>.svg" alt="<%=song.country%>">
+              <h2 class="c-song__title"><%=song.country%></h2>
+            </div>
+            <div class="c-song__details">
+              <strong><%=song.song%></strong>&nbsp;by <%=song.artist%>
+              <br>
+              <% for (var score=1; score<=10; score++) {%>
+                <button data-js="judge" data-score="<%=score%>" class="c-song__score <%=(song.score===score?'active':'')%>">
+                  <%=score%>
+                </button>
+              <% } %>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </template>
+    <template id="view-vote">
+      <div class="c-header">
+        <img class="c-header__logo" src="Eurovision_Kyiv2017_black.png" alt="Eurovision 2017" />
+        <div>
+          <a href="#" data-link="judge">Judge</a>
+          <a href="#" data-link="vote">Points</a>
+        </div>
+        <span class="c-header__name"><%=name%></span>
+      </div>
+
+      <div>
+      <% for (var points = 12; points >= 1; points--) { if (points===9||points===11) continue; %>
+        <div class="c-points">
+          <h2 class="c-points__title"><%=points%></h2>
+          <select class="c-points__country" data-points="<%=points%>">
+            <option selected disabled>Undecided</option>
+            <% for (var song of songs) { if (song.points && song.points !== points) continue; %>
+              <option value="<%=song.code%>"><%=song.country%> (<%=song.score || '-'%>/10)</option>
+            <% } %>
+          </select>
+        </div>
+      <% } %>
+      </div>
+    </template>
+    <script src="js/app.js" charset="utf-8"></script>
+  </body>
+</html>

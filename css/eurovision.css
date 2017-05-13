@@ -1,0 +1,133 @@
+* { box-sizing: border-box; }
+
+body {
+  height: 100vh;
+  margin: 0;
+  background-color: #DDD;
+  color: #333;
+  font-family: Arial;
+}
+
+.c-app {
+  height: 100%;
+}
+
+.c-login__container {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-login {
+  max-width: 500px;
+}
+
+.c-login__logo {
+  max-width: 100%;
+  opacity: 0.6;
+}
+
+.c-login__label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.c-login__name {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: .5rem;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.c-login__button {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+  border: 1px solid #CCC;
+  border-radius: 8px;
+  background-color: #EEE;
+  padding: .5rem 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color .2s linear;
+}
+
+.c-login__button:hover {
+  background-color: #FFF;
+}
+
+.c-header {
+  display: flex;
+  width: 100%;
+  padding: .5rem;
+  background-color: #AAA;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-header__logo {
+  max-height: 2rem;
+}
+
+.c-header__name {
+  font-weight: bold;
+}
+
+.c-flag {
+  width: 4rem;
+  margin-right: 1rem;
+}
+
+.c-song__header {
+  display: flex;
+  align-items: center;
+}
+
+.c-song__title {
+  margin: 0;
+}
+
+.c-song__details {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #CCC;
+}
+
+.c-song__score {
+  border: 1px solid #CCC;
+  border-radius: 8px;
+  background-color: #EEE;
+  padding: .5rem 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color .2s linear;
+}
+
+.c-song__score.active {
+  background-color: blue;
+}
+
+.c-points {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-points__title {
+  margin: 0;
+}
+
+.c-points__country {
+  margin-left: auto;
+  padding: .5rem;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+}

@@ -1,0 +1,30 @@
+{
+  "songs": [
+    {"code": "israel", "country": "Israel", "flag": "flags/Flag_of_Israel", "artist": "IMRI", "song":"I Feel Alive"},
+    {"code": "poland", "country": "Poland", "flag": "flags/Flag_of_Poland", "artist": "Kasia Mos", "song":"Flashlight"},
+    {"code": "belarus", "country": "Belarus", "flag": "flags/Flag_of_Belarus", "artist": "Naviband", "song":"Story of My life"},
+    {"code": "austria", "country": "Austria", "flag": "flags/Flag_of_Austria", "artist": "Nathan Trent", "song":"Running on Air"},
+    {"code": "armenia", "country": "Armenia", "flag": "flags/Flag_of_Armenia", "artist": "Artsvik", "song":"Fly with Me"},
+    {"code": "netherlands", "country": "The Netherlands", "flag": "flags/Flag_of_the_Netherlands", "artist": "OG3NE", "song":"Lights and Shadows"},
+    {"code": "moldova", "country": "Moldova", "flag": "flags/Flag_of_Moldova", "artist": "Sunstroke Project", "song":"Hey Mamma"},
+    {"code": "hungary", "country": "Hungary", "flag": "flags/Flag_of_Hungary", "artist": "Joci Papai", "song":"Origo"},
+    {"code": "italy", "country": "Italy", "flag": "flags/Flag_of_Italy", "artist": "Francesco Gabbani", "song":"Occidentalis Karma"},
+    {"code": "denmark", "country": "Denmark", "flag": "flags/Flag_of_Denmark", "artist": "Anja", "song":"Where I Am"},
+    {"code": "portugal", "country": "Portugal", "flag": "flags/Flag_of_Portugal", "artist": "Salvador Sobral", "song":"Amar Pelos Dios"},
+    {"code": "azerbaijan", "country": "Azerbaijan", "flag": "flags/Flag_of_Azerbaijan", "artist": "Dihaj", "song":"Skeletons"},
+    {"code": "croatia", "country": "Croatia", "flag": "flags/Flag_of_Croatia", "artist": "Jacques Houdek", "song":"My Friend"},
+    {"code": "australia", "country": "Australia", "flag": "flags/Flag_of_Australia", "artist": "Isaiah Firebrace", "song":"Don't Come Easy"},
+    {"code": "greece", "country": "Greece", "flag": "flags/Flag_of_Greece", "artist": "Demy", "song":"This Is Love"},
+    {"code": "spain", "country": "Spain", "flag": "flags/Flag_of_Spain", "artist": "Manel Navarro", "song":"Do It For Your Lover"},
+    {"code": "norway", "country": "Norway", "flag": "flags/Flag_of_Norway", "artist": "JOWST", "song":"Grab the Moment"},
+    {"code": "uk", "country": "United Kingdom", "flag": "flags/Flag_of_the_United_Kingdom", "artist": "Lucie Jones", "song":"Never Give Up On You"},
+    {"code": "cyprus", "country": "Cyprus", "flag": "flags/Flag_of_Cyprus", "artist": "Hovig", "song":"Gravity"},
+    {"code": "romania", "country": "Romania", "flag": "flags/Flag_of_Romania", "artist": "Ilinca and Alex Florea", "song":"Yodel It"},
+    {"code": "germany", "country": "Germany", "flag": "flags/Flag_of_Germany", "artist": "Levina", "song":"Perfect Life"},
+    {"code": "ukraine", "country": "Ukraine", "flag": "flags/Flag_of_Ukraine", "artist": "O.Torvald", "song":"Time"},
+    {"code": "belgium", "country": "Belgium", "flag": "flags/Flag_of_Belgium", "artist": "Blanche", "song":"City Lights"},
+    {"code": "sweden", "country": "Sweden", "flag": "flags/Flag_of_Sweden", "artist": "Robin Bengtsson", "song":"I Can't Go On "},
+    {"code": "bulgaria", "country": "Bulgaria", "flag": "flags/Flag_of_Bulgaria", "artist": "Kristian Kostov", "song":"Beautiful Mess"},
+    {"code": "france", "country": "France", "flag": "flags/Flag_of_France", "artist": "Alma", "song":"Requiem"}
+  ]
+}
