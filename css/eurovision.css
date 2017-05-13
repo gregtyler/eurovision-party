@@ -81,6 +81,16 @@ body {
   font-weight: bold;
 }
 
+.c-header__nav {
+  color: inherit;
+  padding: 0 1rem;
+}
+
+.c-header__nav--active {
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .c-flag {
   width: 4rem;
   margin-right: 1rem;
