@@ -57,7 +57,16 @@ function save() {
 }
 
 function sync() {
-  fetch('https://eurovision.gregtyler.co.uk/save')
+  fetch('https://eurovision.gregtyler.co.uk/save', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: localStorage.getItem('name'),
+      scores: JSON.parse(localStorage.getItem('scores'))
+    })
+  })
     .then(function(response) {return response.json();})
     .then(function(json) {
       if (!json.success) throw new Error('Error when saving');
@@ -150,16 +159,14 @@ fetch('js/data.json')
       db.name = localStorage.getItem('name');
       view(localStorage.getItem('view') || 'judge');
 
-      if (false) {
-        var $tray = $('[data-js="tray"]');
-        $tray.hidden = false;
+      var $tray = $('[data-js="tray"]');
+      $tray.hidden = false;
 
-        $tray.addEventListener('click', function() {
-          if (confirm('Do you want to save your judgements?')) {
-            sync();
-          }
-        });
-      }
+      $tray.addEventListener('click', function() {
+        if (confirm('Do you want to save your judgements?')) {
+          sync();
+        }
+      });
     } else {
       view('login');
     }
