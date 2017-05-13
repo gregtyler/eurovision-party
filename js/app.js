@@ -1,4 +1,4 @@
-const $app = $('#app');
+var $app = $('#app');
 var db = {};
 
 function $(sel) {
@@ -48,7 +48,7 @@ function tmpl(viewID, data){
 
 function save() {
   // Save votes
-  var scores = db.songs.map(song => {return {
+  var scores = db.songs.map(function(song) {return {
     code: song.code,
     score: song.score || 0,
     points: song.points || 0
@@ -56,11 +56,21 @@ function save() {
   localStorage.setItem('scores', JSON.stringify(scores));
 }
 
+function sync() {
+  fetch('https://eurovision.gregtyler.co.uk/save')
+    .then(function(response) {return response.json();})
+    .then(function(json) {
+      if (!json.success) throw new Error('Error when saving');
+    }).catch(function(error) {
+      alert('An error occurred 😞 Please try again later');
+    });
+}
+
 function view(viewID) {
   $app.innerHTML = tmpl(viewID, db);
 
-  $$('[data-link]').forEach($link => {
-    $link.addEventListener('click', (event) => {
+  $$('[data-link]').forEach(function($link) {
+    $link.addEventListener('click', function(event) {
       event.preventDefault();
       view($link.getAttribute('data-link'))
     });
@@ -78,14 +88,14 @@ function view(viewID) {
       view('judge');
     });
   } else if (viewID === 'judge') {
-    $$('[data-js="judge"]').forEach($btn => {
+    $$('[data-js="judge"]').forEach(function($btn) {
       $btn.addEventListener('click', function() {
         var countryCode = this.closest('[data-song]').getAttribute('data-song');
         var score = parseInt(this.getAttribute('data-score'), 10);
 
         // Set vote
         db.songs
-          .find(song => song.code === countryCode)
+          .find(function(song) {return song.code === countryCode;})
           .score = score;
 
         save();
@@ -95,7 +105,7 @@ function view(viewID) {
     });
   } else if (viewID === 'vote') {
     // Set the select box values
-    db.songs.forEach(song => {
+    db.songs.forEach(function(song) {
       if (song.points) {
         console.log(song);
         $('[data-points="' + song.points + '"] > [value="' + song.code + '"]').selected = true;
@@ -103,14 +113,14 @@ function view(viewID) {
     });
 
     // Save when points are set
-    $$('[data-points]').forEach($points => {
+    $$('[data-points]').forEach(function($points) {
       $points.addEventListener('change', function() {
         var points = parseInt(this.getAttribute('data-points'), 10);
         var countryCode = this.value;
 
         // Set points
         db.songs
-          .find(song => song.code === countryCode)
+          .find(function(song) {return song.code === countryCode;})
           .points = points;
 
         save();
@@ -121,8 +131,8 @@ function view(viewID) {
 
 
 fetch('js/data.json')
-  .then(response => response.json())
-  .then(data => {
+  .then(function(response) {return response.json();})
+  .then(function(data) {
     db.songs = data.songs;
 
     var scores = localStorage.getItem('scores');
@@ -130,7 +140,7 @@ fetch('js/data.json')
       scores = JSON.parse(scores);
       scores.forEach(function(userScore) {
         var song = db.songs
-          .find(song => song.code === userScore.code);
+          .find(function(song) {return song.code === userScore.code;});
         song.score = userScore.score
         song.points = userScore.points;
       });
@@ -139,6 +149,17 @@ fetch('js/data.json')
     if (localStorage.getItem('name')) {
       db.name = localStorage.getItem('name');
       view(localStorage.getItem('view') || 'judge');
+
+      if (false) {
+        var $tray = $('[data-js="tray"]');
+        $tray.hidden = false;
+
+        $tray.addEventListener('click', function() {
+          if (confirm('Do you want to save your judgements?')) {
+            sync();
+          }
+        });
+      }
     } else {
       view('login');
     }
