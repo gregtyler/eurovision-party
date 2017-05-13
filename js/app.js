@@ -116,7 +116,6 @@ function view(viewID) {
     // Set the select box values
     db.songs.forEach(function(song) {
       if (song.points) {
-        console.log(song);
         $('[data-points="' + song.points + '"] > [value="' + song.code + '"]').selected = true;
       }
     });
@@ -127,10 +126,15 @@ function view(viewID) {
         var points = parseInt(this.getAttribute('data-points'), 10);
         var countryCode = this.value;
 
+        // Clear points
+        var pointer = db.songs
+          .find(function(song) {return song.points === points;});
+        if (pointer) pointer.points = 0;
+
         // Set points
-        db.songs
+        var pointer = db.songs
           .find(function(song) {return song.code === countryCode;})
-          .points = points;
+        if (pointer) pointer.points = points;
 
         save();
       });

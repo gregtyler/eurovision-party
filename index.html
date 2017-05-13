@@ -70,7 +70,7 @@
         <div class="c-points">
           <h2 class="c-points__title"><%=points%></h2>
           <select class="c-points__country" data-points="<%=points%>">
-            <option selected disabled>Undecided</option>
+            <option selected>Undecided</option>
             <% for (var song of songs) { if (song.points && song.points !== points) continue; %>
               <option value="<%=song.code%>"><%=song.country%> (<%=song.score || '-'%>/10)</option>
             <% } %>
