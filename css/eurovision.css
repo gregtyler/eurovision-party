@@ -101,18 +101,33 @@ body {
   background-color: #CCC;
 }
 
-.c-song__score {
-  border: 1px solid #CCC;
-  border-radius: 8px;
+.c-score__rack {
+  display: flex;
+}
+
+.c-score {
+  flex: auto;
+  border: 0;
+  border-right: 1px solid #CCC;
   background-color: #EEE;
-  padding: .5rem 1rem;
+  padding: .5rem 0;
   font-size: 1.1rem;
   cursor: pointer;
   transition: background-color .2s linear;
 }
 
-.c-song__score.active {
-  background-color: blue;
+.c-score:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.c-score:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.c-score.active {
+  background-color: #5ea0e0;
 }
 
 .c-points {

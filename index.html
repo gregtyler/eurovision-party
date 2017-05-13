@@ -42,12 +42,11 @@
             </div>
             <div class="c-song__details">
               <strong><%=song.song%></strong>&nbsp;by <%=song.artist%>
-              <br>
+              <div class="c-score__rack">
               <% for (var score=1; score<=10; score++) {%>
-                <button data-js="judge" data-score="<%=score%>" class="c-song__score <%=(song.score===score?'active':'')%>">
-                  <%=score%>
-                </button>
+                <button data-js="judge" data-score="<%=score%>" class="c-score <%=(song.score===score?'active':'')%>"><%=score%></button>
               <% } %>
+            </div>
             </div>
           </div>
         <% } %>
