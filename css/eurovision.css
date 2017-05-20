@@ -158,6 +158,10 @@ body {
   justify-content: space-between;
 }
 
+.c-points:last-child {
+  margin-bottom: 3rem;
+}
+
 .c-points__title {
   margin: 0;
 }
