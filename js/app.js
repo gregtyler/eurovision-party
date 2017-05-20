@@ -70,6 +70,7 @@ function sync() {
     .then(function(response) {return response.json();})
     .then(function(json) {
       if (!json.success) throw new Error('Error when saving');
+      else alert('Saved!')
     }).catch(function(error) {
       alert('An error occurred 😞 Please try again later');
     });
